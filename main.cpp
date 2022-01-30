@@ -31,7 +31,7 @@ void DrawScreen(){
     // [6-?]全てのマスを反復する
     for(int y = 0; y < FIELD_HEIGHT; y++)
       for(int x = 0; x < FIELD_WIDTH; x++)
-        printf("");
+        printf("%s", tileAA[screen[y][x]]);
 }
 // [6-?]ゲームをリセットする関数を宣言する
 void Reset(){
