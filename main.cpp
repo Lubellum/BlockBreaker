@@ -9,6 +9,8 @@
 // [4]構造体を宣言する場所
 
 // [5]変数を宣言する場所
+int field  [FIELD_WIDTH][FIELD_HEIGHT]; // [5-?]フィールドを宣言する
+int screen [FIELD_WIDTH][FIELD_HEIGHT]; // [5-?]画面を宣言する
 
 // [6]関数を宣言する場所
 // [6-?]画面を描画する関数を宣言
