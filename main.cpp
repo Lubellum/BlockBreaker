@@ -1,4 +1,5 @@
 // [1]ヘッダーをincludeする場所
+#include <stdio.h> // [1-?]標準入出力ヘッダーをインクルードする
 
 // [2]定数を宣言する場所
 #define FIELD_WIDTH  (8) // [2-?]フィールドの幅を宣言
@@ -15,7 +16,10 @@ int screen [FIELD_WIDTH][FIELD_HEIGHT]; // [5-?]画面を宣言する
 // [6]関数を宣言する場所
 // [6-?]画面を描画する関数を宣言
 void DrawScreen(){
-
+    // [6-?]全てのマスを反復する
+    for(int y = 0; y < FIELD_HEIGHT; y++)
+      for(int x = 0; x < FIELD_WIDTH; x++)
+        printf("");
 }
 // [6-?]ゲームをリセットする関数を宣言する
 void Reset(){
