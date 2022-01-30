@@ -1,6 +1,5 @@
 // [1]ヘッダーをincludeする場所
-#include <iostream>
-using namespace std;
+
 // [2]定数を宣言する場所
 
 // [3]列挙定数を宣言する場所
@@ -14,8 +13,7 @@ using namespace std;
 int main (){
     // [6-?-?]メインループを追加する
     while (1){
-      cout << "Hello World!";
-      return 0;
+      
     }
     
 }
