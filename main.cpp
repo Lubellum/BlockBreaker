@@ -6,10 +6,22 @@
 #define FIELD_HEIGHT (8) // [2-?]フィールドの高さを宣言
 
 // [3]列挙定数を宣言する場所
+// [3-?]他いるの種類を宣言する
+enum {
+    TILE_NONE,  // [3-?-?]何も無い
+    TILE_BLOCK, // [3-?-?]ブロック
+    TILE_MAX    // [3-?-?]種類の数
+};
 
 // [4]構造体を宣言する場所
 
 // [5]変数を宣言する場所
+// [5-?]タイルのアスキーアートを宣言する
+const char *tileAA[] =  {
+    "・", // TILE_NONE, 何も無い
+    "■",  // TILE_BLOCK, ブロック
+};
+
 int field  [FIELD_WIDTH][FIELD_HEIGHT]; // [5-?]フィールドを宣言する
 int screen [FIELD_WIDTH][FIELD_HEIGHT]; // [5-?]画面を宣言する
 
