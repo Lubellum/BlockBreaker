@@ -32,9 +32,9 @@ void DrawScreen(){
     for(int y = 0; y < FIELD_HEIGHT; y++){
       for(int x = 0; x < FIELD_WIDTH; x++){
         // [6-?-?]対象のマスを描画する
-          printf("%s", tileAA[screen[y][x]]);
+        printf("%s", tileAA[screen[y][x]]);
       }
-    // [6-?-?]1行描画する毎に改行
+      // [6-?-?]1行描画する毎に改行
       printf("\n");
     }
 }
