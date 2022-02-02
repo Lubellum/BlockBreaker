@@ -29,9 +29,12 @@ int screen [FIELD_WIDTH][FIELD_HEIGHT]; // [5-?]画面を宣言する
 // [6-?]画面を描画する関数を宣言
 void DrawScreen(){
     // [6-?]全てのマスを反復する
-    for(int y = 0; y < FIELD_HEIGHT; y++)
-      for(int x = 0; x < FIELD_WIDTH; x++)
+    for(int y = 0; y < FIELD_HEIGHT; y++){
+      for(int x = 0; x < FIELD_WIDTH; x++){
         printf("%s", tileAA[screen[y][x]]);
+      }
+      printf("\n");
+    }
 }
 // [6-?]ゲームをリセットする関数を宣言する
 void Reset(){
