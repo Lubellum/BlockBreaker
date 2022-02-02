@@ -2,8 +2,8 @@
 #include <stdio.h> // [1-?]標準入出力ヘッダーをインクルードする
 
 // [2]定数を宣言する場所
-#define FIELD_WIDTH  (8) // [2-?]フィールドの幅を宣言
-#define FIELD_HEIGHT (8) // [2-?]フィールドの高さを宣言
+#define FIELD_WIDTH  (40) // [2-?]フィールドの幅を宣言
+#define FIELD_HEIGHT (20) // [2-?]フィールドの高さを宣言
 
 // [3]列挙定数を宣言する場所
 // [3-?]他いるの種類を宣言する
@@ -31,7 +31,8 @@ void DrawScreen(){
     // [6-?]全てのマスを反復する
     for(int y = 0; y < FIELD_HEIGHT; y++){
       for(int x = 0; x < FIELD_WIDTH; x++){
-        printf("%s", tileAA[screen[y][x]]);
+        // [6-?-?]対象のマスを描画する
+          printf("%s", tileAA[screen[y][x]]);
       }
       printf("\n");
     }
