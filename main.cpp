@@ -28,7 +28,7 @@ int screen [FIELD_WIDTH][FIELD_HEIGHT]; // [5-?]画面を宣言する
 // [6]関数を宣言する場所
 // [6-?]画面を描画する関数を宣言
 void DrawScreen(){
-    // [6-?]全てのマスを反復する
+    // [6-?]全ての行を反復する
     for(int y = 0; y < FIELD_HEIGHT; y++){
       // [6-?-?]左の壁を描画する
       printf("■");
