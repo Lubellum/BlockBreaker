@@ -36,6 +36,7 @@ void DrawScreen(){
         // [6-?-?]対象のマスを描画する
         printf("%s", tileAA[screen[y][x]]);
       }
+      printf("■"); // [6-?-?]右の壁を描画する
       // [6-?-?]1行描画する毎に改行
       printf("\n");
     }
