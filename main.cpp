@@ -32,6 +32,7 @@ void DrawScreen(){
     for(int y = 0; y < FIELD_HEIGHT; y++){
       // [6-?-?]左の壁を描画する
       printf("■");
+      // [6-?-?]すべての列を反復する
       for(int x = 0; x < FIELD_WIDTH; x++){
         // [6-?-?]対象のマスを描画する
         printf("%s", tileAA[screen[y][x]]);
