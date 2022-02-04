@@ -6,11 +6,14 @@
 #define FIELD_WIDTH  (15) // [2-?]フィールドの幅を宣言
 #define FIELD_HEIGHT (20) // [2-?]フィールドの高さを宣言
 
+#define PADDLE_WIDTH (3)  // [2-?]パドルの幅を宣言する
+
 // [3]列挙定数を宣言する場所
 // [3-?]タイルの種類を宣言する
 enum {
     TILE_NONE,  // [3-?-?]何も無い
     TILE_BLOCK, // [3-?-?]ブロック
+    TILE_PADDLE, // [3-?-?]パドル
     TILE_MAX    // [3-?-?]種類の数
 };
 
