@@ -22,9 +22,9 @@ enum {
 // [5]変数を宣言する場所
 // [5-?]タイルのアスキーアートを宣言する
 const char *tileAA[] =  {
-    "・", // TILE_NONE, 何も無い
-    "🟫",  // TILE_BLOCK, ブロック
-    "回",  // TILE_PADDLE, パドル
+    "・",  // [5-?-?]TILE_NONE, 何も無い
+    "🟫",  // [5-?-?]TILE_BLOCK, ブロック
+    "回",  // [5-?-?]TILE_PADDLE, パドル
 };
 
 int field  [FIELD_WIDTH][FIELD_HEIGHT]; // [5-?]フィールドを宣言する
