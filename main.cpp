@@ -43,8 +43,9 @@ void DrawScreen(){
     // [6-?-?]画面にフィールドをコピーする
     memcpy(screen, field, sizeof field);
 
+    // [6-?-?]上の壁を描画する
     for(int x = 0; x < FIELD_WIDTH + 2; x++){
-        printf("⬜️"); // [6-?-?]上の壁を描画する
+        printf("⬜️");
     }
     // [6-?-?]上の壁の描画が終わり次第改行
     printf("\n");
