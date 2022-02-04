@@ -40,6 +40,9 @@ VEC2 paddlePosition; // [5-?]パドルの座標を宣言する
 // [6]関数を宣言する場所
 // [6-?]画面を描画する関数を宣言
 void DrawScreen(){
+    // [6-?-?]画面にフィールドをコピーする
+    memcpy(screen, field, sizeof field);
+
     for(int x = 0; x < FIELD_WIDTH + 2; x++){
         printf("⬜️"); // [6-?-?]上の壁を描画する
     }
@@ -69,8 +72,7 @@ void Reset(){
             field[y][x] = TILE_BLOCK;
         }
     }
-    // [6-?-?]画面にフィールドをコピーする
-    memcpy(screen, field, sizeof field);
+    
     // [6-?-?]画面を描画する関数を呼び出す
     DrawScreen();
 }
