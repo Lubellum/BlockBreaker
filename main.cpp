@@ -30,8 +30,9 @@ int screen [FIELD_WIDTH][FIELD_HEIGHT]; // [5-?]画面を宣言する
 // [6-?]画面を描画する関数を宣言
 void DrawScreen(){
     for(int x = 0; x < FIELD_WIDTH + 2; x++){
-        printf("⬜️"); // [6-?-?]下の壁を描画する
+        printf("⬜️"); // [6-?-?]上の壁を描画する
     }
+    // [6-?-?]上の壁の描画が終わり次第改行
     printf("\n");
     // [6-?]全ての行を反復する
     for(int y = 0; y < FIELD_HEIGHT; y++){
