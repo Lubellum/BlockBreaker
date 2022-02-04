@@ -42,11 +42,6 @@ void DrawScreen(){
       // [6-?-?]1行描画する毎に改行
       printf("\n");
     }
-    // [6-?-?]全ての列を反復する
-    for(int x = 0; x < FIELD_WIDTH + 2; x++){
-        printf("⬜️"); // [6-?-?]下の壁を描画する
-    }
-    printf("\n");
 }
 // [6-?]ゲームをリセットする関数を宣言する
 void Reset(){
