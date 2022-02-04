@@ -24,6 +24,7 @@ enum {
 const char *tileAA[] =  {
     "・", // TILE_NONE, 何も無い
     "🟫",  // TILE_BLOCK, ブロック
+    "回",  // TILE_PADDLE, パドル
 };
 
 int field  [FIELD_WIDTH][FIELD_HEIGHT]; // [5-?]フィールドを宣言する
