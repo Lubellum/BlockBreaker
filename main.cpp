@@ -1,5 +1,6 @@
 // [1]ヘッダーをincludeする場所
 #include <stdio.h> // [1-?]標準入出力ヘッダーをインクルードする
+#include <string.h> // [1-?]文字列操作ヘッダーをインクルードする
 
 // [2]定数を宣言する場所
 #define FIELD_WIDTH  (15) // [2-?]フィールドの幅を宣言
@@ -19,7 +20,7 @@ enum {
 // [5-?]タイルのアスキーアートを宣言する
 const char *tileAA[] =  {
     "　", // TILE_NONE, 何も無い
-    "■",  // TILE_BLOCK, ブロック
+    "回",  // TILE_BLOCK, ブロック
 };
 
 int field  [FIELD_WIDTH][FIELD_HEIGHT]; // [5-?]フィールドを宣言する
@@ -49,6 +50,16 @@ void DrawScreen(){
 }
 // [6-?]ゲームをリセットする関数を宣言する
 void Reset(){
+    // [6-?-?]フィールドの上の方を反復する
+    for(int y = 0; y < 8; y++){
+        // [6-?-?]全ての列を反復する
+        for(int x = 0; x < FIELD_WIDTH; x++){
+            // [6-?-?]対象の座標にブロックを配置する
+            field[y][x] = TILE_BLOCK;
+        }
+    }
+    // [6-?-?]画面にフィールドをコピーする
+    memcpy(screen, field, sizeof field);
     // [6-?-?]画面を描画する関数を呼び出す
     DrawScreen();
 }
