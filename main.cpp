@@ -32,19 +32,19 @@ void DrawScreen(){
     // [6-?]全ての行を反復する
     for(int y = 0; y < FIELD_HEIGHT; y++){
       // [6-?-?]左の壁を描画する
-      printf("■");
+      printf("⬜️");
       // [6-?-?]すべての列を反復する
       for(int x = 0; x < FIELD_WIDTH; x++){
         // [6-?-?]対象のマスを描画する
         printf("%s", tileAA[screen[y][x]]);
       }
-      printf("■"); // [6-?-?]右の壁を描画する
+      printf("⬜️"); // [6-?-?]右の壁を描画する
       // [6-?-?]1行描画する毎に改行
       printf("\n");
     }
     // [6-?-?]すべての列を反復する
-    for(int x = 0; x < FIELD_WIDTH * 2; x++){
-        printf("■"); // [6-?-?]下の壁を描画する
+    for(int x = 0; x < FIELD_WIDTH + 2; x++){
+        printf("⬜️"); // [6-?-?]下の壁を描画する
     }
     printf("\n");
 }
