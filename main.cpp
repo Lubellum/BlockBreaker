@@ -43,6 +43,11 @@ void DrawScreen(){
     // [6-?-?]画面にフィールドをコピーする
     memcpy(screen, field, sizeof field);
 
+    // [6-?-?]パドルの幅だけ反復する
+    // for(int x = 0; x < PADDLE_WIDTH; x++){
+    //     screen[paddlePosition.y][paddlePosition.x] = TILE_PADDLE;
+    // }
+
     // [6-?-?]上の壁を描画する
     for(int x = 0; x < FIELD_WIDTH + 2; x++){
         printf("⬜️");
@@ -74,6 +79,9 @@ void Reset(){
         }
     }
     
+    // [6-?-?]パドルの座標を初期化する
+    // paddlePosition = {( FIELD_WIDTH - PADDLE_WIDTH ) / 2, FIELD_HEIGHT - 2};
+
     // [6-?-?]画面を描画する関数を呼び出す
     DrawScreen();
 }
