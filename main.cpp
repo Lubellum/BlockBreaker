@@ -78,9 +78,9 @@ void Reset(){
             field[y][x] = TILE_BLOCK;
         }
     }
-    
+
     // [6-?-?]パドルの座標を初期化する
-    // paddlePosition = {( FIELD_WIDTH - PADDLE_WIDTH ) / 2, FIELD_HEIGHT - 2};
+    paddlePosition = {( FIELD_WIDTH - PADDLE_WIDTH ) / 2, FIELD_HEIGHT - 2};
 
     // [6-?-?]画面を描画する関数を呼び出す
     DrawScreen();
