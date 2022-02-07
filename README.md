@@ -14,9 +14,9 @@ https://youtu.be/hSgK1mAjiTQ
 以上。
 
 ## インストール方法
-下記のコマンドを入力してアプリをインストール。
-    git clone https://github.com/Lubellum/BlockBreaker.git
-インストール後、実行ファイルを実行しゲームを起動させる。
+-下記のコマンドを入力してアプリをインストール。
+    -git clone https://github.com/Lubellum/BlockBreaker.git
+-インストール後、実行ファイルを実行しゲームを起動させる。
 
 ## 製作者
 https://twitter.com/w02180alzlv
