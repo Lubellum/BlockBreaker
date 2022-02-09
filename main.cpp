@@ -33,6 +33,8 @@ const char *tileAA[] =  {
 int field  [FIELD_WIDTH][FIELD_HEIGHT]; // [5-?]フィールドを宣言する
 int screen [FIELD_WIDTH][FIELD_HEIGHT]; // [5-?]画面を宣言する
 
+VEC2 ballPosition; //[5-?]ボールの座標を宣言する
+
 // [6]関数を宣言する場所
 // [6-?]画面を描画する関数を宣言
 void DrawScreen(){
