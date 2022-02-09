@@ -30,8 +30,8 @@ const char *tileAA[] =  {
     "🟫",  // [5-?-?]TILE_BLOCK, ブロック
 };
 
-int field  [FIELD_WIDTH][FIELD_HEIGHT]; // [5-?]フィールドを宣言する
-int screen [FIELD_WIDTH][FIELD_HEIGHT]; // [5-?]画面を宣言する
+int field  [FIELD_HEIGHT][FIELD_WIDTH]; // [5-?]フィールドを宣言する
+int screen [FIELD_HEIGHT][FIELD_WIDTH]; // [5-?]画面を宣言する
 
 VEC2 ballPosition; //[5-?]ボールの座標を宣言する
 
