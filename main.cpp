@@ -24,7 +24,7 @@ typedef struct {
 
 // [5]変数を宣言する場所
 // [5-?]タイルのアスキーアートを宣言する
-const char *tileAA[] =  {
+const char *tileAA[] = {
     "・",  // [5-?-?]TILE_NONE, 何も無い
     "🔵",  // [5-?-?]TILE_BALL, ボール
     "🟫",  // [5-?-?]TILE_BLOCK, ブロック
