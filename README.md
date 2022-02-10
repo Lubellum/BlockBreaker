@@ -10,12 +10,12 @@ https://youtu.be/hSgK1mAjiTQ
 
 ## 遊び方
 ← → キーでバーを左右に動かす。  
-ボールを弾く。  
+ボールを弾き、ブロックを壊す。  
 以上。  
 
 ## インストール方法
 下記のコマンドを入力してアプリをインストール。  
-git clone https://github.com/Lubellum/BlockBreaker.git  
+  git clone https://github.com/Lubellum/BlockBreaker.git  
 インストール後、実行ファイルを実行しゲームを起動させる。
 
 ## 製作者
