@@ -45,6 +45,7 @@ void DrawScreen(){
 
     // [6-?-?]パドルの幅だけ反復する
     for(int x = 0; x < PADDLE_WIDTH; x++){
+        screen[paddlePosition.y][paddlePosition.x + x] = TILE_PADDLE;
     }
 
     // [6-?-?]上の壁を描画する
