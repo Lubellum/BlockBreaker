@@ -20,5 +20,5 @@ https://youtu.be/hSgK1mAjiTQ
 インストール後、実行ファイルを実行しゲームを起動させる。
 
 ## 製作者
-Twitterリンクです。
+Twitterリンクです。  
 https://twitter.com/w02180alzlv
