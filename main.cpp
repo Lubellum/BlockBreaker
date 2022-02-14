@@ -80,8 +80,7 @@ void Reset(){
     }
 
     // [6-?-?]パドルの座標を初期化する
-    // VEC2 paddlePosition = {( FIELD_WIDTH - PADDLE_WIDTH ) / 2, FIELD_HEIGHT - 2};
-    VEC2 paddlePosition = {10, 20};
+    VEC2 paddlePosition = {( FIELD_WIDTH - PADDLE_WIDTH ) / 2, FIELD_HEIGHT - 2};
 
     // [6-?-?]画面を描画する関数を呼び出す
     DrawScreen();
