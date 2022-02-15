@@ -44,6 +44,7 @@ void DrawScreen(){
     memcpy(screen, field, sizeof field);
 
     // [6-?-?]パドルの幅だけ反復する
+    // 初期化して描画の位置まではあっている。はず。あとは何故描画が上手くいっていないのか？
     for(int x = 0; x < PADDLE_WIDTH; x++){
         screen[paddlePosition.y][paddlePosition.x + x] = TILE_PADDLE;
     }
