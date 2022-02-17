@@ -41,23 +41,3 @@ int _kbhit(void)
 
 	return 0;
 }
-
-/******************************
-******************************/
-int main(void)
-{
-	printf("please input any key > ");
-
-	while (1) {
-		if (_kbhit()) {
-			printf("\n");
-			printf("the key was : %c\n", getchar());
-			break;
-		}
-		
-		// sleep(1); // sec
-		usleep(10 * 1000);
-	}
-
-	return 0;
-}
