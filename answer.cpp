@@ -2,6 +2,7 @@
 #include <stdlib.h>
 #include <time.h>
 #include <conio.h>
+#include <kbhit.h>
 
 #define FIELD_WIDTH  (14)
 #define FIELD_HEIGHT (FIELD_WIDTH * 2)
