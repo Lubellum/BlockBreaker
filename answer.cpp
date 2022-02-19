@@ -23,7 +23,8 @@ int paddleY;
 int field[FIELD_HEIGHT][FIELD_WIDTH];
 
 void DrawScreen() {
- system("reset");
+//  resetを入れるとバグる
+//  system("reset");
  for (int x = 0; x < FIELD_WIDTH + 2; x++)
   printf("■");
  printf("\n");
