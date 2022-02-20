@@ -46,8 +46,8 @@ void DrawScreen(){
     // [6-?-?]パドルの幅だけ反復する
     // 初期化して描画の位置まではあっている。はず。あとは何故描画が上手くいっていないのか？
     for(int x = 0; x < PADDLE_WIDTH; x++){
-        screen[paddlePosition.y][paddlePosition.x + x] = TILE_PADDLE;
-        // screen[4][10] = TILE_PADDLE;
+        // screen[paddlePosition.y][paddlePosition.x + x] = TILE_PADDLE;
+        screen[10][14] = TILE_PADDLE;
     }
 
     // [6-?-?]上の壁を描画する
@@ -82,6 +82,7 @@ void Reset(){
     }
 
     // [6-?-?]パドルの座標を初期化する
+    // paddlePosition = {( FIELD_WIDTH - PADDLE_WIDTH ) / 2, FIELD_HEIGHT - 2};
     // paddlePosition.x = (FIELD_WIDTH - PADDLE_WIDTH) / 2;
     // paddlePosition.y = FIELD_HEIGHT - 2;
 
