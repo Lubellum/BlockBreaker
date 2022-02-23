@@ -33,13 +33,16 @@ const char *tileAA[] = {
 int field  [FIELD_HEIGHT][FIELD_WIDTH]; // [5-?]フィールドを宣言する
 int screen [FIELD_HEIGHT][FIELD_WIDTH]; // [5-?]画面を宣言する
 
-VEC2 ballPosition; //[5-?]ボールの座標を宣言する
+VEC2 ballPosition = { FIELD_WIDTH / 2, FIELD_HEIGHT / 2 }; //[5-?]ボールの座標を初期化する
 
 // [6]関数を宣言する場所
 // [6-?]画面を描画する関数を宣言
 void DrawScreen(){
     // [6-?-?]画面にフィールドをコピーする
     memcpy(screen, field, sizeof field);
+
+    // [6-?-?]画面にボールを描画する
+    screen[ballPosition.y][ballPosition.x] = TILE_BALL;
 
     for(int x = 0; x < FIELD_WIDTH + 2; x++){
         printf("⬜️"); // [6-?-?]上の壁を描画する
