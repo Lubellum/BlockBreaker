@@ -35,7 +35,7 @@ const char *tileAA[] =  {
 int field  [FIELD_WIDTH][FIELD_HEIGHT]; // [5-?]フィールドを宣言する
 int screen [FIELD_WIDTH][FIELD_HEIGHT]; // [5-?]画面を宣言する
 
-VEC2 paddlePosition; // [5-?]パドルの座標を宣言する
+VEC2 paddlePosition = {( FIELD_WIDTH - PADDLE_WIDTH ) / 2, FIELD_HEIGHT - 2}; // [5-?]パドルの座標を宣言する
 
 // [6]関数を宣言する場所
 // [6-?]画面を描画する関数を宣言
@@ -46,8 +46,7 @@ void DrawScreen(){
     // [6-?-?]パドルの幅だけ反復する
     // 初期化して描画の位置まではあっている。はず。あとは何故描画が上手くいっていないのか？
     for(int x = 0; x < PADDLE_WIDTH; x++){
-        // screen[paddlePosition.y][paddlePosition.x + x] = TILE_PADDLE;
-        screen[18][6] = TILE_PADDLE;
+        screen[paddlePosition.y][paddlePosition.x + x] = TILE_PADDLE;
     }
 
     // [6-?-?]上の壁を描画する
@@ -80,11 +79,6 @@ void Reset(){
             field[y][x] = TILE_BLOCK;
         }
     }
-
-    // [6-?-?]パドルの座標を初期化する
-    // paddlePosition = {( FIELD_WIDTH - PADDLE_WIDTH ) / 2, FIELD_HEIGHT - 2};
-    // paddlePosition.x = (FIELD_WIDTH - PADDLE_WIDTH) / 2;
-    // paddlePosition.y = FIELD_HEIGHT - 2;
 
     // [6-?-?]画面を描画する関数を呼び出す
     DrawScreen();
