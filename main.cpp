@@ -90,6 +90,7 @@ int main (){
 
     // [6-?-?]メインループを追加する
     while (1){
-      
+        // [6-?-?]現在の時間を宣言する
+        clock_t newClock = clock();
     }
 }
