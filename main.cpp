@@ -92,5 +92,10 @@ int main (){
     while (1){
         // [6-?-?]現在の時間を宣言する
         clock_t newClock = clock();
+
+        // [6-?-?]描画時間になったかどうか判定する
+        if (newClock >= lastClock + INTERVAL){
+            lastClock = newClock; // [6-?-?]前回の時間を更新する
+        }
     }
 }
