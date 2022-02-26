@@ -50,6 +50,8 @@ void DrawScreen(){
     // [6-?-?]画面にボールを描画する
     screen[ballPosition.y][ballPosition.x] = TILE_BALL;
 
+    system("reset");
+    
     for(int x = 0; x < FIELD_WIDTH + 2; x++){
         printf("⬜️"); // [6-?-?]上の壁を描画する
     }
