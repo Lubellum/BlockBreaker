@@ -97,7 +97,10 @@ int main (){
         if (newClock >= lastClock + INTERVAL){
             ballPosition.x += ballDirection.x; // [6-?-?]ボールを横に移動させる
             ballPosition.y += ballDirection.y; // [6-?-?]ボールを縦に移動させる
+
             lastClock = newClock; // [6-?-?]前回の時間を更新する
+
+            DrawScreen(); // [6-?-?]画面を再描画する
         }
     }
 }
