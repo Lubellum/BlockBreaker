@@ -6,7 +6,7 @@
 
 // [2]定数を宣言する場所
 #define FIELD_WIDTH  (15) // [2-?]フィールドの幅を宣言
-#define FIELD_HEIGHT (20) // [2-?]フィールドの高さを宣言
+#define FIELD_HEIGHT (30) // [2-?]フィールドの高さを宣言
 
 #define FPS          (10)         // [2-?]1秒あたりの描画頻度を宣言する
 #define INTERVAL     (1000 / FPS) // [2-?]描画間隔(ミリ秒)を宣言する
@@ -107,7 +107,7 @@ int main (){
 
             // [6-?-?]ボールが右の壁と当たったかどうか判定する
             if(nextBallPosition.x >= FIELD_WIDTH - 1){
-                nextBallPosition.x = -1;
+                ballDirection.x = -1;
             }
 
             ballPosition = nextBallPosition; // [6-?-?]次のボールの座標を適用する
