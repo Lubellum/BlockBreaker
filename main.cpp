@@ -98,8 +98,12 @@ int main (){
 
         // [6-?-?]描画時間になったかどうか判定する
         if (newClock >= lastClock + INTERVAL){
-            ballPosition.x += ballDirection.x; // [6-?-?]ボールを横に移動させる
-            ballPosition.y += ballDirection.y; // [6-?-?]ボールを縦に移動させる
+
+            // [6-?-?]次のボールの座標を宣言する
+            VEC2 nextBallPosition = {
+                ballPosition.x += ballDirection.x; // [6-?-?]ボールを横に移動させる
+                ballPosition.y += ballDirection.y; // [6-?-?]ボールを縦に移動させる
+            }
 
             lastClock = newClock; // [6-?-?]前回の時間を更新する
 
