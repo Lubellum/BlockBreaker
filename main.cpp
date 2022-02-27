@@ -15,8 +15,8 @@
 // [3-?]タイルの種類を宣言する
 enum {
     TILE_NONE,  // [3-?-?]何も無い
-    TILE_BALL,  // [3-?-?]ボール
     TILE_BLOCK, // [3-?-?]ブロック
+    TILE_BALL,  // [3-?-?]ボール
     TILE_MAX    // [3-?-?]種類の数
 };
 
@@ -31,8 +31,8 @@ typedef struct {
 // [5-?]タイルのアスキーアートを宣言する
 const char *tileAA[] = {
     "・",  // [5-?-?]TILE_NONE, 何も無い
-    "🔵",  // [5-?-?]TILE_BALL, ボール
     "🟫",  // [5-?-?]TILE_BLOCK, ブロック
+    "🔵",  // [5-?-?]TILE_BALL, ボール
 };
 
 int field  [FIELD_HEIGHT][FIELD_WIDTH]; // [5-?]フィールドを宣言する
