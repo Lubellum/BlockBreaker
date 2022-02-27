@@ -105,6 +105,11 @@ int main (){
                 ballPosition.y += ballDirection.y // [6-?-?]ボールを縦に移動させる
             };
 
+            // [6-?-?]ボールが右の壁と当たったかどうか判定する
+            if(nextBallPosition.x >= FIELD_WIDTH - 1){
+                nextBallPosition.x = -1;
+            }
+
             ballPosition = nextBallPosition; // [6-?-?]次のボールの座標を適用する
 
             lastClock = newClock; // [6-?-?]前回の時間を更新する
