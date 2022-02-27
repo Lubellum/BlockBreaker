@@ -110,7 +110,7 @@ int main (){
                 ballDirection.x = -1;
             }
             
-            // [6-?-?]ボールが右の壁と当たったかどうか判定する
+            // [6-?-?]ボールが下端と当たったかどうか判定する
             if(nextBallPosition.y >= FIELD_HEIGHT - 1){
                 ballDirection.y = -1;
             }
