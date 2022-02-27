@@ -105,6 +105,11 @@ int main (){
                 ballPosition.y += ballDirection.y // [6-?-?]ボールを縦に移動させる
             };
 
+            // [6-?-?]ボールが下端と当たったかどうか判定する
+            if(nextBallPosition.y >= FIELD_HEIGHT - 1){
+                ballDirection.y = -1;
+            }
+
             // [6-?-?]ボールが左の壁と当たったかどうか判定する
             if(nextBallPosition.x <= 0){
                 ballDirection.x = 1;
@@ -113,11 +118,6 @@ int main (){
             // [6-?-?]ボールが右の壁と当たったかどうか判定する
             if(nextBallPosition.x >= FIELD_WIDTH - 1){
                 ballDirection.x = -1;
-            }
-            
-            // [6-?-?]ボールが下端と当たったかどうか判定する
-            if(nextBallPosition.y >= FIELD_HEIGHT - 1){
-                ballDirection.y = -1;
             }
 
             ballPosition = nextBallPosition; // [6-?-?]次のボールの座標を適用する
