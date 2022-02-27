@@ -105,6 +105,11 @@ int main (){
                 ballPosition.y += ballDirection.y // [6-?-?]ボールを縦に移動させる
             };
 
+            // [6-?-?]ボールが上端と当たったかどうか判定する
+            if(nextBallPosition.y <= 0){
+                ballDirection.y = 1;
+            }
+
             // [6-?-?]ボールが下端と当たったかどうか判定する
             if(nextBallPosition.y >= FIELD_HEIGHT - 1){
                 ballDirection.y = -1;
