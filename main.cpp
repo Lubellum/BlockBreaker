@@ -105,6 +105,11 @@ int main (){
                 ballPosition.y += ballDirection.y // [6-?-?]ボールを縦に移動させる
             };
 
+            // [6-?-?]ボールが左の壁と当たったかどうか判定する
+            if(nextBallPosition.x <= 0){
+                ballDirection.x = 1;
+            }
+
             // [6-?-?]ボールが右の壁と当たったかどうか判定する
             if(nextBallPosition.x >= FIELD_WIDTH - 1){
                 ballDirection.x = -1;
