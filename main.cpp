@@ -101,9 +101,11 @@ int main (){
 
             // [6-?-?]次のボールの座標を宣言する
             VEC2 nextBallPosition = {
-                ballPosition.x += ballDirection.x; // [6-?-?]ボールを横に移動させる
-                ballPosition.y += ballDirection.y; // [6-?-?]ボールを縦に移動させる
-            }
+                ballPosition.x += ballDirection.x, // [6-?-?]ボールを横に移動させる
+                ballPosition.y += ballDirection.y // [6-?-?]ボールを縦に移動させる
+            };
+
+            ballPosition = nextBallPosition; // [6-?-?]次のボールの座標を適用する
 
             lastClock = newClock; // [6-?-?]前回の時間を更新する
 
