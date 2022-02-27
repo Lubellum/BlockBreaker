@@ -109,6 +109,11 @@ int main (){
             if(nextBallPosition.x >= FIELD_WIDTH - 1){
                 ballDirection.x = -1;
             }
+            
+            // [6-?-?]ボールが右の壁と当たったかどうか判定する
+            if(nextBallPosition.y >= FIELD_HEIGHT - 1){
+                ballDirection.y = -1;
+            }
 
             ballPosition = nextBallPosition; // [6-?-?]次のボールの座標を適用する
 
