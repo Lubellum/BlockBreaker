@@ -55,6 +55,11 @@ void DrawScreen(){
     // [6-?-?]画面にボールを描画する
     screen[ballPosition.y][ballPosition.x] = TILE_BALL;
 
+     // [6-?-?]パドルの幅だけ反復する
+    for(int x = 0; x < PADDLE_WIDTH; x++){
+        screen[paddlePosition.y][paddlePosition.x + x] = TILE_PADDLE;
+    }
+    
     // system("reset");
     
     for(int x = 0; x < FIELD_WIDTH + 2; x++){
