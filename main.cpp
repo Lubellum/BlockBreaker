@@ -17,6 +17,7 @@
 enum {
     TILE_NONE,  // [3-?-?]何も無い
     TILE_BLOCK, // [3-?-?]ブロック
+    TILE_PADDLE, // [3-?-?]パドル
     TILE_BALL,  // [3-?-?]ボール
     TILE_MAX    // [3-?-?]種類の数
 };
