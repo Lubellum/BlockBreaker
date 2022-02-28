@@ -17,8 +17,8 @@
 enum {
     TILE_NONE,   // [3-?-?]何も無い
     TILE_BLOCK,  // [3-?-?]ブロック
-    TILE_PADDLE, // [3-?-?]パドル
     TILE_BALL,   // [3-?-?]ボール
+    TILE_PADDLE, // [3-?-?]パドル
     TILE_MAX     // [3-?-?]種類の数
 };
 
@@ -60,7 +60,7 @@ void DrawScreen(){
     for(int x = 0; x < PADDLE_WIDTH; x++){
         screen[paddlePosition.y][paddlePosition.x + x] = TILE_PADDLE;
     }
-    
+
     // system("reset");
     
     for(int x = 0; x < FIELD_WIDTH + 2; x++){
