@@ -35,6 +35,7 @@ const char *tileAA[] = {
     "・",  // [5-?-?]TILE_NONE, 何も無い
     "🟫",  // [5-?-?]TILE_BLOCK, ブロック
     "🔵",  // [5-?-?]TILE_BALL, ボール
+    "回",  // [5-?-?]TILE_PADDLE, パドル
 };
 
 int field  [FIELD_HEIGHT][FIELD_WIDTH]; // [5-?]フィールドを宣言する
