@@ -7,6 +7,7 @@
 // [2]定数を宣言する場所
 #define FIELD_WIDTH  (15) // [2-?]フィールドの幅を宣言
 #define FIELD_HEIGHT (30) // [2-?]フィールドの高さを宣言
+#define PADDLE_WIDTH (3)  // [2-?]パドルの幅を宣言する
 
 #define FPS          (10)         // [2-?]1秒あたりの描画頻度を宣言する
 #define INTERVAL     (1000 / FPS) // [2-?]描画間隔(ミリ秒)を宣言する
