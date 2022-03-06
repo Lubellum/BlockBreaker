@@ -3,7 +3,7 @@
 #include <stdio.h>
  
 /* reads from keypress, doesn't echo */
-int getch(void)
+int _getch(void)
 {
     struct termios oldattr, newattr;
     int ch;
@@ -17,7 +17,7 @@ int getch(void)
 }
  
 /* reads from keypress, echoes */
-int getche(void)
+int _getche(void)
 {
     struct termios oldattr, newattr;
     int ch;
