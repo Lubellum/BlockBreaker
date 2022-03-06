@@ -147,7 +147,7 @@ int main (){
 
         // [6-?-?]キーボード入力があったかどうか判定する
         if(_kbhit()){
-            
+            VEC2 nextPaddleposition = paddlePosition; // [6-?-?]次のパドルの座標を宣言する
         }
     }
 }
