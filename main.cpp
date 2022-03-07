@@ -148,6 +148,15 @@ int main (){
         // [6-?-?]キーボード入力があったかどうか判定する
         if(_kbhit()){
             VEC2 nextPaddleposition = paddlePosition; // [6-?-?]次のパドルの座標を宣言する
+            // [6-?-?]入力されたキーによって分岐する
+                switch (_getch()){
+                case 0x4b:
+                    paddlePosition.x--;
+                    break;
+                case 0x4d:
+                    paddlePosition.x++;
+                    break;
+            }
         }
     }
 }
