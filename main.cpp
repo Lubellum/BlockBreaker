@@ -156,6 +156,8 @@ int main (){
                     paddlePosition.x++;
                     break;
             }
+
+            DrawScreen();
         }
     }
 }
