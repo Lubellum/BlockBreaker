@@ -157,6 +157,11 @@ int main (){
                     break;
             }
 
+            // [6-?-?]パドルが左の壁にめり込んだかどうか判定する
+            if(paddlePosition.x < 0){
+                paddlePosition.x = 0; // パドルをフィールド内に押し戻す
+            }
+
             DrawScreen();
         }
     }
