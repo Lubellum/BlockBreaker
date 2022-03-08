@@ -140,8 +140,12 @@ int main (){
 
             ballPosition = nextBallPosition; // [6-?-?]次のボールの座標を適用する
 
-            // [6-?-?]ボールがパドルの上の座標にあたったかどうか判定する
-            if(ballPosition.y == paddlePosition.y - 1){
+            // [6-?-?]ボールがパドルの上の座標に当たったかどうか判定する
+            if(
+                (ballPosition.y == paddlePosition.y - 1)
+                && (ballPosition.x == paddlePosition.x)
+                && (ballPosition.x < paddlePosition.x + PADDLE_WIDTH)
+            ){
                 ballDirection.y = -1; // [6-?-?]ボールの進行方向を上にする
             }
 
