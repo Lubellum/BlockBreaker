@@ -140,6 +140,10 @@ int main (){
 
             ballPosition = nextBallPosition; // [6-?-?]次のボールの座標を適用する
 
+            if(ballPosition.y == paddlePosition.y - 1){
+                ballDirection.y = -1;
+            }
+
             lastClock = newClock; // [6-?-?]前回の時間を更新する
 
             DrawScreen(); // [6-?-?]画面を再描画する
