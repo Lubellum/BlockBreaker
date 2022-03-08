@@ -3,10 +3,13 @@
 #include <stdlib.h> // [1-?]標準ライブラリヘッダーをインクルードする
 #include <string.h> // [1-?]文字列操作ヘッダーをインクルードする
 #include <time.h>   // [1-?]時間ヘッダーをインクルードする
+#include "conio.h"  // [1-?]コンソール入出力ヘッダーを擬似的にインクルード
+#include "kbhit.h"  // [1-?]kbhitヘッダーを擬似的にインクルード
 
 // [2]定数を宣言する場所
 #define FIELD_WIDTH  (15) // [2-?]フィールドの幅を宣言
 #define FIELD_HEIGHT (30) // [2-?]フィールドの高さを宣言
+#define PADDLE_WIDTH (3)  // [2-?]パドルの幅を宣言する
 
 #define FPS          (10)         // [2-?]1秒あたりの描画頻度を宣言する
 #define INTERVAL     (1000 / FPS) // [2-?]描画間隔(ミリ秒)を宣言する
@@ -14,10 +17,11 @@
 // [3]列挙定数を宣言する場所
 // [3-?]タイルの種類を宣言する
 enum {
-    TILE_NONE,  // [3-?-?]何も無い
-    TILE_BLOCK, // [3-?-?]ブロック
-    TILE_BALL,  // [3-?-?]ボール
-    TILE_MAX    // [3-?-?]種類の数
+    TILE_NONE,   // [3-?-?]何も無い
+    TILE_BLOCK,  // [3-?-?]ブロック
+    TILE_BALL,   // [3-?-?]ボール
+    TILE_PADDLE, // [3-?-?]パドル
+    TILE_MAX     // [3-?-?]種類の数
 };
 
 // [4]構造体を宣言する場所
@@ -33,6 +37,7 @@ const char *tileAA[] = {
     "・",  // [5-?-?]TILE_NONE, 何も無い
     "🟫",  // [5-?-?]TILE_BLOCK, ブロック
     "🔵",  // [5-?-?]TILE_BALL, ボール
+    "回",  // [5-?-?]TILE_PADDLE, パドル
 };
 
 int field  [FIELD_HEIGHT][FIELD_WIDTH]; // [5-?]フィールドを宣言する
@@ -40,6 +45,9 @@ int screen [FIELD_HEIGHT][FIELD_WIDTH]; // [5-?]画面を宣言する
 
 VEC2 ballPosition  = { 0, FIELD_HEIGHT / 4 }; //[5-?]ボールの座標を初期化する
 VEC2 ballDirection = { 1, 1 };                // [5-?]ボールの進行方向を宣言する
+
+VEC2 paddlePosition = {( FIELD_WIDTH - PADDLE_WIDTH) / 2, FIELD_HEIGHT - 2}; // [5-?]パドルの座標を宣言する
+
 
 // [6]関数を宣言する場所
 // [6-?]画面を描画する関数を宣言
@@ -49,6 +57,11 @@ void DrawScreen(){
 
     // [6-?-?]画面にボールを描画する
     screen[ballPosition.y][ballPosition.x] = TILE_BALL;
+
+     // [6-?-?]パドルの幅だけ反復する
+    for(int x = 0; x < PADDLE_WIDTH; x++){
+        screen[paddlePosition.y][paddlePosition.x + x] = TILE_PADDLE;
+    }
 
     // system("reset");
     
@@ -127,9 +140,43 @@ int main (){
 
             ballPosition = nextBallPosition; // [6-?-?]次のボールの座標を適用する
 
+            // [6-?-?]ボールがパドルの上の座標に当たったかどうか判定する
+            if(
+                (ballPosition.y == paddlePosition.y - 1)
+                && (ballPosition.x == paddlePosition.x)
+                && (ballPosition.x < paddlePosition.x + PADDLE_WIDTH)
+            ){
+                ballDirection.y = -1; // [6-?-?]ボールの進行方向を上にする
+            }
+
             lastClock = newClock; // [6-?-?]前回の時間を更新する
 
             DrawScreen(); // [6-?-?]画面を再描画する
+        }
+
+        // [6-?-?]キーボード入力があったかどうか判定する
+        if(_kbhit()){
+            // [6-?-?]入力されたキーによって分岐する
+                switch (_getch()){
+                case 'a': // [6-?-?]aキーが押されたら左に移動する
+                    paddlePosition.x--;
+                    break;
+                case 'd': // [6-?-?]dキーが押されたら右に移動する
+                    paddlePosition.x++;
+                    break;
+            }
+
+            // [6-?-?]パドルが左の壁にめり込んだかどうか判定する
+            if(paddlePosition.x < 0){
+                paddlePosition.x = 0; // パドルをフィールド内に押し戻す
+            }
+
+            // [6-?-?]パドルが右の壁にめり込んだかどうか判定する
+            if(paddlePosition.x + PADDLE_WIDTH >= FIELD_WIDTH){
+                paddlePosition.x = FIELD_WIDTH - PADDLE_WIDTH; // パドルをフィールド内に押し戻す
+            }
+
+            DrawScreen();
         }
     }
 }
