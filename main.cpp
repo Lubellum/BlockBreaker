@@ -140,8 +140,9 @@ int main (){
 
             ballPosition = nextBallPosition; // [6-?-?]次のボールの座標を適用する
 
+            // [6-?-?]ボールがパドルの上の座標にあたったかどうか判定する
             if(ballPosition.y == paddlePosition.y - 1){
-                ballDirection.y = -1;
+                ballDirection.y = -1; // [6-?-?]ボールの進行方向を上にする
             }
 
             lastClock = newClock; // [6-?-?]前回の時間を更新する
