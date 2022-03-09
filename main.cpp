@@ -153,6 +153,9 @@ int main (){
                 && (ballPosition.x < paddlePosition.x + PADDLE_WIDTH + 1)
             ){
                 ballDirection.y = -1; // [6-?-?]ボールの進行方向を上にする
+
+                //[6-?-?]パドルの中心のX座標を宣言する
+                int paddleCenterX = paddlePosition.x + PADDLE_WIDTH / 2;
             }
 
             lastClock = newClock; // [6-?-?]前回の時間を更新する
