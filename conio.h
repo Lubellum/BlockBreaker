@@ -17,7 +17,7 @@ int _getch(void)
 }
  
 /* reads from keypress, echoes */
-int getche(void)
+int _getche(void)
 {
     struct termios oldattr, newattr;
     int ch;
