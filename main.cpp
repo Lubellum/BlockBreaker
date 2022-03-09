@@ -143,8 +143,13 @@ int main (){
 
             // [6-?-?]ボールがパドルの上の座標に当たったかどうか判定する
             if(
+                //[6-?-?]ボールの座標がパドルの上の行かどうか
                 (ballPosition.y == paddlePosition.y - 1)
+
+                //[6-?-?]ボールの座標がパドルの左端よりも右か
                 && (ballPosition.x == paddlePosition.x)
+
+                //[6-?-?]ボールの座標がパドルの右端よりも左か
                 && (ballPosition.x < paddlePosition.x + PADDLE_WIDTH)
             ){
                 ballDirection.y = -1; // [6-?-?]ボールの進行方向を上にする
