@@ -147,10 +147,10 @@ int main (){
                 (ballPosition.y == paddlePosition.y - 1)
 
                 //[6-?-?]ボールの座標がパドルの左端よりも右か
-                && (ballPosition.x == paddlePosition.x)
+                && (ballPosition.x == paddlePosition.x - 1)
 
                 //[6-?-?]ボールの座標がパドルの右端よりも左か
-                && (ballPosition.x < paddlePosition.x + PADDLE_WIDTH)
+                && (ballPosition.x < paddlePosition.x + PADDLE_WIDTH + 1)
             ){
                 ballDirection.y = -1; // [6-?-?]ボールの進行方向を上にする
             }
