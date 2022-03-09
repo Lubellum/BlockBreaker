@@ -156,6 +156,16 @@ int main (){
 
                 //[6-?-?]パドルの中心のX座標を宣言する
                 int paddleCenterX = paddlePosition.x + PADDLE_WIDTH / 2;
+
+                //[6-?-?]ボールがパドルの左端に当たったら
+                if(ballPosition.x < paddleCenterX){
+                    ballDirection.x = -1; //[6-?-?]ボールを左に跳ね返す
+                }
+                
+                //[6-?-?]ボールがパドルの右端に当たったら
+                else if(ballPosition.x > paddleCenterX){
+                    ballDirection.x = 1; //[6-?-?]ボールを右に跳ね返す
+                }
             }
 
             lastClock = newClock; // [6-?-?]前回の時間を更新する
