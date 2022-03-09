@@ -14,6 +14,8 @@
 #define FPS          (10)         // [2-?]1秒あたりの描画頻度を宣言する
 #define INTERVAL     (1000 / FPS) // [2-?]描画間隔(ミリ秒)を宣言する
 
+#define PADDLE_WIDTH (3)  // [2-?]パドルの幅を宣言する
+
 // [3]列挙定数を宣言する場所
 // [3-?]タイルの種類を宣言する
 enum {
@@ -49,6 +51,8 @@ VEC2 ballDirection = { 1, 1 };                // [5-?]ボールの進行方向�
 VEC2 paddlePosition = {( FIELD_WIDTH - PADDLE_WIDTH) / 2, FIELD_HEIGHT - 2}; // [5-?]パドルの座標を宣言する
 
 
+VEC2 paddlePosition = {( FIELD_WIDTH - PADDLE_WIDTH ) / 2, FIELD_HEIGHT - 2}; // [5-?]パドルの座標を宣言する
+
 // [6]関数を宣言する場所
 // [6-?]画面を描画する関数を宣言
 void DrawScreen(){
@@ -66,7 +70,7 @@ void DrawScreen(){
     // system("reset");
     
     for(int x = 0; x < FIELD_WIDTH + 2; x++){
-        printf("⬜️"); // [6-?-?]上の壁を描画する
+        printf("⬜️");
     }
     // [6-?-?]上の壁の描画が終わり次第改行
     printf("\n");
