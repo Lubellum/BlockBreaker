@@ -174,13 +174,22 @@ int main (){
                 }
             }
 
-            // [6-?-?]ボールの左右1マスを反復する
-            for(int x = -1; x < 1; x++){
-                // [6-?-?]ボールの1マス上の左右の座標を取得する
-                VEC2 position = {
-                    ball.position.x + x,
-                    ball.position.y - 1
-                };
+            // [6-?-?]ボールの座標が先頭行よりもしたかどうか判定する
+            if(ball.position.y > 0){
+                // [6-?-?]ボールの左右1マスを反復する
+                for(int x = -1; x < 1; x++){
+                    // [6-?-?]ボールの1マス上の左右の座標を取得する
+                    VEC2 position = {
+                        ball.position.x + x,
+                        ball.position.y - 1
+                    };
+                    if(
+                        (position.x < 0)               //左外かどうか
+                        && (position.x >= FIELD_WIDTH) //右外かどうか
+                    ){
+                        continue; // [6-?-?]次の座標へスキップする
+                    }
+                }
             }
 
             lastClock = newClock; // [6-?-?]前回の時間を更新する
