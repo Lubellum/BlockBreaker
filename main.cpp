@@ -108,10 +108,10 @@ void Reset(){
 // [6-?]対象の座標がフィールドの範囲内かどうか判定する関数を宣言する
 bool InsideField(VEC2 _v){
     return 
-        (_v.x >= 0)
-        && (_v.x < FIELD_WIDTH)
-        && (_v.y >= 0)
-        && (_v.y < FIELD_HEIGHT);
+        (_v.x >= 0)               // 左端より右かどうか
+        && (_v.x < FIELD_WIDTH)   // 右端より左かどうか
+        && (_v.y >= 0)            // 下端より上かどうか
+        && (_v.y < FIELD_HEIGHT); // 上端より下かどうか
 };
 
 // [6-?]プログラムの実行開始を宣言する
