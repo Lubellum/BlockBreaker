@@ -117,6 +117,28 @@ bool InsideField(VEC2 _v){
 
 // [6-?]ボールとブロックが当たったかどうか判定する関数を宣言する
 bool BallIntersectBlocks(){
+    // [6-?-?]ボールの座標が先頭行よりも下かどうか判定する
+    if(ball.position.y > 0){
+        // [6-?-?]ボールの左右1マスを反復する
+        for(int x = -1; x < 1; x++){
+            // [6-?-?]ボールの1マス上の左右の座標を取得する
+            VEC2 position = {
+                ball.position.x + x,
+                ball.position.y - 1
+            };
+
+            // [6-?-?]対象の座標がフィールドの範囲内でないかどうか判定する
+            if(!InsideField(position)){
+                continue; // [6-?-?]次の座標へスキップする
+            }
+
+            // [6-?-?]対象の座標にブロックがあるかどうか判定する
+            if(field[position.y][position.x] == TILE_BLOCK){
+                ballHitBlocks = true; // [6-?-?]ボールとブロックが当たったフラグを建てる
+                break; // [6-?-?]当たり判定を終了する
+            }
+        }
+    }
     return false; // [6-?-?]当たらなかったという結果を返す
 }
 
@@ -192,29 +214,6 @@ int main (){
 
             // [6-?-?]ボールがブロックに当ったかどうかのフラグを宣言する
             bool ballHitBlocks = false;
-
-            // [6-?-?]ボールの座標が先頭行よりも下かどうか判定する
-            if(ball.position.y > 0){
-                // [6-?-?]ボールの左右1マスを反復する
-                for(int x = -1; x < 1; x++){
-                    // [6-?-?]ボールの1マス上の左右の座標を取得する
-                    VEC2 position = {
-                        ball.position.x + x,
-                        ball.position.y - 1
-                    };
-
-                    // [6-?-?]対象の座標がフィールドの範囲内でないかどうか判定する
-                    if(!InsideField(position)){
-                        continue; // [6-?-?]次の座標へスキップする
-                    }
-
-                    // [6-?-?]対象の座標にブロックがあるかどうか判定する
-                    if(field[position.y][position.x] == TILE_BLOCK){
-                        ballHitBlocks = true; // [6-?-?]ボールとブロックが当たったフラグを建てる
-                        break; // [6-?-?]当たり判定を終了する
-                    }
-                }
-            }
 
             lastClock = newClock; // [6-?-?]前回の時間を更新する
 
