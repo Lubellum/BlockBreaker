@@ -64,7 +64,6 @@ void DrawScreen(){
 
     // [6-?-?]画面にボールを描画する
     screen[ball.position.y][ball.position.x] = TILE_BALL;
-    // screen[ballPosition.y][ballPosition.x] = TILE_BALL;
 
      // [6-?-?]パドルの幅だけ反復する
     for(int x = 0; x < PADDLE_WIDTH; x++){
@@ -123,9 +122,7 @@ int main (){
             // [6-?-?]次のボールの座標を宣言する
             VEC2 nextBallPosition = {
                 ball.position.x += ball.direction.x, // [6-?-?]ボールを横に移動させる
-                // ballPosition.x += ballDirection.x, // [6-?-?]ボールを横に移動させる
                 ball.position.y += ball.direction.y // [6-?-?]ボールを縦に移動させる
-                // ballPosition.y += ballDirection.y // [6-?-?]ボールを縦に移動させる
             };
 
             // [6-?-?]ボールが上端と当たったかどうか判定する
