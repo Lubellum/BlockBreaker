@@ -104,6 +104,16 @@ void Reset(){
     // [6-?-?]画面を描画する関数を呼び出す
     DrawScreen();
 }
+
+// [6-?]対象の座標がフィールドの範囲内かどうか判定する関数を宣言する
+bool InsideField(VEC2 _v){
+    return 
+        (_v.x >= 0)
+        && (_v.x < FIELD_WIDTH)
+        && (_v.y >= 0)
+        && (_v.y < FIELD_HEIGHT);
+};
+
 // [6-?]プログラムの実行開始を宣言する
 int main (){
     Reset(); // [6-?]ゲームをリセットする関数を呼び出す
