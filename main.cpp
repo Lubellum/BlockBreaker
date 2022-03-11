@@ -185,6 +185,9 @@ int main (){
                 }
             }
 
+            // [6-?-?]ボールがブロックに当ったかどうかのフラグを宣言する
+            bool ballHitBlocks = false;
+
             // [6-?-?]ボールの座標が先頭行よりも下かどうか判定する
             if(ball.position.y > 0){
                 // [6-?-?]ボールの左右1マスを反復する
@@ -199,9 +202,6 @@ int main (){
                     if(!InsideField(position)){
                         continue; // [6-?-?]次の座標へスキップする
                     }
-
-                    // [6-?-?]ボールがブロックに当ったかどうかのフラグを宣言する
-                    bool ballHitBlocks = false;
 
                     // [6-?-?]対象の座標にブロックがあるかどうか判定する
                     if(field[position.y][position.x] == TILE_BLOCK){
