@@ -200,10 +200,19 @@ int main (){
                         continue; // [6-?-?]次の座標へスキップする
                     }
 
-                    // // [6-?-?]対象の座標にブロックがあるかどうか判定する
-                    // if(field[position.y][position.x] == TILE_BLOCK){
-                    //     for(int x2 = -1; x < 1; x++)
-                    // }
+                    // [6-?-?]対象の座標にブロックがあるかどうか判定する
+                    if(field[position.y][position.x] == TILE_BLOCK){
+                        // [6-?-?]ボールの左右1マスを反復する
+                        for(int x2 = -1; x2 < 1; x2++){
+                            // [6-?-?]対象の座標がフィールドの範囲内かどうか判定する
+                            if(
+                                (ball.position.x + x2 >= 0)
+                                && (ball.position.x + x2 < FIELD_WIDTH)
+                            ){
+                                continue; // [6-?-?]次の座標へスキップする
+                            }
+                        }
+                    }
                 }
             }
 
