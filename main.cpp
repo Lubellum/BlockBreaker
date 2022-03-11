@@ -32,6 +32,10 @@ typedef struct {
     int x, y;
 }VEC2;
 
+// [4-?]ボールの構造体を宣言する
+typedef struct {
+    VEC2 position;
+}BALL;
 
 // [5]変数を宣言する場所
 // [5-?]タイルのアスキーアートを宣言する
