@@ -195,11 +195,8 @@ int main (){
                         ball.position.y - 1
                     };
 
-                    // [6-?-?]対象の座標がフィールドの範囲内どうか判定する
-                    if(
-                        (position.x < 0)               //左外かどうか
-                        && (position.x >= FIELD_WIDTH) //右外かどうか
-                    ){
+                    // [6-?-?]対象の座標がフィールドの範囲内でないかどうか判定する
+                    if(!InsideField(position)){
                         continue; // [6-?-?]次の座標へスキップする
                     }
 
