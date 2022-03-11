@@ -191,6 +191,11 @@ int main (){
                     ){
                         continue; // [6-?-?]次の座標へスキップする
                     }
+
+                    // // [6-?-?]対象の座標にブロックがあるかどうか判定する
+                    // if(field[position.y][position.x] == TILE_BLOCK){
+                    //     for(int x2 = -1; x < 1; x++)
+                    // }
                 }
             }
 
