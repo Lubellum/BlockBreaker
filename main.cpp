@@ -183,6 +183,7 @@ int main (){
                         ball.position.x + x,
                         ball.position.y - 1
                     };
+
                     if(
                         (position.x < 0)               //左外かどうか
                         && (position.x >= FIELD_WIDTH) //右外かどうか
