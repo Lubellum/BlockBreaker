@@ -115,6 +115,11 @@ bool InsideField(VEC2 _v){
         && (_v.y < FIELD_HEIGHT); // 上端より下かどうか
 };
 
+// [6-?]ボールとブロックが当たったかどうか判定する関数を宣言する
+bool BallIntersectBlocks(){
+    return false; // [6-?-?]当たらなかったという結果を返す
+}
+
 // [6-?]プログラムの実行開始を宣言する
 int main (){
     Reset(); // [6-?]ゲームをリセットする関数を呼び出す
