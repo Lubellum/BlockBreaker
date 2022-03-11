@@ -213,8 +213,13 @@ int main (){
                 }
             }
 
-            // [6-?-?]ボールがブロックに当ったかどうかのフラグを宣言する
-            bool ballHitBlocks = false;
+            // // [6-?-?]ボールとブロックが当ったかどうか判定する
+            // if(BallIntersectBlocks()){
+            //     // [6-?-?]
+            //     for(int x = -1; x < 1; x++){
+
+            //     }
+            // }
 
             lastClock = newClock; // [6-?-?]前回の時間を更新する
 
