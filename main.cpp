@@ -184,6 +184,7 @@ int main (){
                         ball.position.y - 1
                     };
 
+                    // [6-?-?]対象の座標がフィールドの範囲内どうか判定する
                     if(
                         (position.x < 0)               //左外かどうか
                         && (position.x >= FIELD_WIDTH) //右外かどうか
