@@ -136,8 +136,7 @@ bool BallIntersectBlocks(){
 
             // [6-?-?]対象の座標にブロックがあるかどうか判定する
             if(field[position.y][position.x] == TILE_BLOCK){
-                ballHitBlocks = true; // [6-?-?]ボールとブロックが当たったフラグを建てる
-                break; // [6-?-?]当たり判定を終了する
+                return true; // [6-?-?]当たったという結果を返す
             }
         }
     }
