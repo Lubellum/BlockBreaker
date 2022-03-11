@@ -200,6 +200,9 @@ int main (){
                         continue; // [6-?-?]次の座標へスキップする
                     }
 
+                    // [6-?-?]ボールがブロックに当ったかどうかのフラグを宣言する
+                    bool ballHitBlocks = false;
+
                     // [6-?-?]対象の座標にブロックがあるかどうか判定する
                     if(field[position.y][position.x] == TILE_BLOCK){
                         // [6-?-?]ボールの左右1マスを反復する
