@@ -213,13 +213,14 @@ int main (){
                 }
             }
 
-            // // [6-?-?]ボールとブロックが当ったかどうか判定する
-            // if(BallIntersectBlocks()){
-            //     // [6-?-?]
-            //     for(int x = -1; x < 1; x++){
-
-            //     }
-            // }
+            // [6-?-?]ボールとブロックが当ったかどうか判定する
+            if(BallIntersectBlocks()){
+                // [6-?-?]ボールの左右1マスを反復する
+                for(int x = ball.position.x - 1; x < ball.position.x + 1; x++){
+                    // [6-?-?]対象の座標を宣言する
+                    VEC2 position = { x, ball.position.y - 1 };
+                }
+            }
 
             lastClock = newClock; // [6-?-?]前回の時間を更新する
 
