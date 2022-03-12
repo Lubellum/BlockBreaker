@@ -122,10 +122,10 @@ bool BallIntersectBlocks(){
         return false; // 当たらなかったという結果を返す
 
         // [6-?-?]ボールの左右1マスを反復する
-        for(int x = -1; x < 1; x++){
+        for(int x = ball.position.x -1; x <= ball.position.x + 1; x++){
             // [6-?-?]ボールの1マス上の左右の座標を取得する
             VEC2 position = {
-                ball.position.x + x,
+                x,
                 ball.position.y - 1
             };
 
