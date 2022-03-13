@@ -223,6 +223,9 @@ int main (){
                     // [6-?-?]対象の座標がフィールドの範囲内でないかどうか判定する
                     if(!InsideField(position)){
                         continue; // [6-?-?]次の座標へスキップする
+                    } else {
+                        // [6-?-?]対象のブロックを削除する
+                        field[position.y][position.x];
                     }
                 }
             }
