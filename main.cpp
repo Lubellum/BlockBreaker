@@ -118,7 +118,7 @@ bool InsideField(VEC2 _v){
 // [6-?]ボールとブロックが当たったかどうか判定する関数を宣言する
 bool BallIntersectBlocks(){
     // [6-?-?]ボールの座標が先頭行かどうか判定する
-    if(ball.position.y > 0){
+    if(ball.position.y <= 0){
         return false; // 当たらなかったという結果を返す
 
         // [6-?-?]ボールの左右1マスを反復する
