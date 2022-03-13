@@ -215,6 +215,8 @@ int main (){
 
             // [6-?-?]ボールとブロックが当ったかどうか判定する
             if(BallIntersectBlocks()){
+                ball.direction.y = -1; // [6-?-?]ボールをしたへ跳ね返す
+
                 // [6-?-?]ボールの左右1マスを反復する
                 for(int x = ball.position.x - 1; x < ball.position.x + 1; x++){
                     // [6-?-?]対象の座標を宣言する
