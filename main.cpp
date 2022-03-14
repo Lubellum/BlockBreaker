@@ -120,7 +120,7 @@ bool BallIntersectBlocks(){
     // [6-?-?]ボールの座標が先頭行かどうか判定する
     if(ball.position.y <= 0){
         return false; // 当たらなかったという結果を返す
-
+    } else {
         // [6-?-?]ボールの左右1マスを反復する
         for(int x = ball.position.x -1; x <= ball.position.x + 1; x++){
             // [6-?-?]ボールの1マス上の左右の座標を取得する
