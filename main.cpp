@@ -32,6 +32,11 @@ typedef struct {
     int x, y;
 }VEC2;
 
+// [4-?]ボールの構造体を宣言する
+typedef struct {
+    VEC2 position;
+    VEC2 direction;
+}BALL;
 
 // [5]変数を宣言する場所
 // [5-?]タイルのアスキーアートを宣言する
@@ -45,10 +50,11 @@ const char *tileAA[] = {
 int field  [FIELD_HEIGHT][FIELD_WIDTH]; // [5-?]フィールドを宣言する
 int screen [FIELD_HEIGHT][FIELD_WIDTH]; // [5-?]画面を宣言する
 
-VEC2 ballPosition  = { 0, FIELD_HEIGHT / 4 }; //[5-?]ボールの座標を初期化する
-VEC2 ballDirection = { 1, 1 };                // [5-?]ボールの進行方向を宣言する
+BALL ball;
+// VEC2 ballPosition  = { 0, FIELD_HEIGHT / 4 }; //[5-?]ボールの座標を初期化する
+// VEC2 ballDirection = { 1, 1 };                // [5-?]ボールの進行方向を宣言する
 
-VEC2 paddlePosition = {( FIELD_WIDTH - PADDLE_WIDTH ) / 2, FIELD_HEIGHT - 2}; // [5-?]パドルの座標を宣言する
+VEC2 paddlePosition = {( FIELD_WIDTH - PADDLE_WIDTH ) / 2, FIELD_HEIGHT - 4}; // [5-?]パドルの座標を宣言する
 
 // [6]関数を宣言する場所
 // [6-?]画面を描画する関数を宣言
@@ -57,7 +63,7 @@ void DrawScreen(){
     memcpy(screen, field, sizeof field);
 
     // [6-?-?]画面にボールを描画する
-    screen[ballPosition.y][ballPosition.x] = TILE_BALL;
+    screen[ball.position.y][ball.position.x] = TILE_BALL;
 
      // [6-?-?]パドルの幅だけ反復する
     for(int x = 0; x < PADDLE_WIDTH; x++){
@@ -87,8 +93,8 @@ void DrawScreen(){
 }
 // [6-?]ゲームをリセットする関数を宣言する
 void Reset(){
-    // [6-?-?]フィールドの上の方を反復する
-    for(int y = 0; y < 5; y++){
+    // [6-?-?]フィールドの上1/4を反復する
+    for(int y = 0; y < FIELD_HEIGHT / 4; y++){
         // [6-?-?]全ての列を反復する
         for(int x = 0; x < FIELD_WIDTH; x++){
             // [6-?-?]対象の座標にブロックを配置する
@@ -98,6 +104,45 @@ void Reset(){
     // [6-?-?]画面を描画する関数を呼び出す
     DrawScreen();
 }
+
+// [6-?]対象の座標がフィールドの範囲内かどうか判定する関数を宣言する
+bool InsideField(VEC2 _v){
+    // [6-?]対象の座標がフィールドの範囲内かどうかを返す
+    return 
+        (_v.x >= 0)               // 左端より右かどうか
+        && (_v.x < FIELD_WIDTH)   // 右端より左かどうか
+        && (_v.y >= 0)            // 下端より上かどうか
+        && (_v.y < FIELD_HEIGHT); // 上端より下かどうか
+};
+
+// [6-?]ボールとブロックが当たったかどうか判定する関数を宣言する
+bool BallIntersectBlocks(){
+    // [6-?-?]ボールの座標が先頭行かどうか判定する
+    if(ball.position.y <= 0){
+        return false; // 当たらなかったという結果を返す
+    } else {
+        // [6-?-?]ボールの左右1マスを反復する
+        for(int x = ball.position.x -1; x <= ball.position.x + 1; x++){
+            // [6-?-?]ボールの1マス上の左右の座標を取得する
+            VEC2 position = {
+                x,
+                ball.position.y - 1
+            };
+
+            // [6-?-?]対象の座標がフィールドの範囲内でないかどうか判定する
+            if(!InsideField(position)){
+                continue; // [6-?-?]次の座標へスキップする
+            }
+
+            // [6-?-?]対象の座標にブロックがあるかどうか判定する
+            if(field[position.y][position.x] == TILE_BLOCK){
+                return true; // [6-?-?]当たったという結果を返す
+            }
+        }
+    }
+    return false; // [6-?-?]当たらなかったという結果を返す
+}
+
 // [6-?]プログラムの実行開始を宣言する
 int main (){
     Reset(); // [6-?]ゲームをリセットする関数を呼び出す
@@ -115,39 +160,62 @@ int main (){
 
             // [6-?-?]次のボールの座標を宣言する
             VEC2 nextBallPosition = {
-                ballPosition.x += ballDirection.x, // [6-?-?]ボールを横に移動させる
-                ballPosition.y += ballDirection.y // [6-?-?]ボールを縦に移動させる
+                ball.position.x += ball.direction.x, // [6-?-?]ボールを横に移動させる
+                ball.position.y += ball.direction.y // [6-?-?]ボールを縦に移動させる
             };
 
             // [6-?-?]ボールが上端と当たったかどうか判定する
             if(nextBallPosition.y <= 0){
-                ballDirection.y = 1;
+                ball.direction.y = 1;
             }
 
             // [6-?-?]ボールが下端と当たったかどうか判定する
             if(nextBallPosition.y >= FIELD_HEIGHT - 1){
-                ballDirection.y = -1;
+                ball.direction.y = -1;
             }
 
             // [6-?-?]ボールが左の壁と当たったかどうか判定する
             if(nextBallPosition.x <= 0){
-                ballDirection.x = 1;
+                ball.direction.x = 1;
             }
 
             // [6-?-?]ボールが右の壁と当たったかどうか判定する
             if(nextBallPosition.x >= FIELD_WIDTH - 1){
-                ballDirection.x = -1;
+                ball.direction.x = -1;
             }
 
-            ballPosition = nextBallPosition; // [6-?-?]次のボールの座標を適用する
+            ball.position = nextBallPosition; // [6-?-?]次のボールの座標を適用する
 
             // [6-?-?]ボールがパドルの上の座標に当たったかどうか判定する
             if(
-                (ballPosition.y == paddlePosition.y - 1)
-                && (ballPosition.x == paddlePosition.x)
-                && (ballPosition.x < paddlePosition.x + PADDLE_WIDTH)
+                //[6-?-?]ボールの座標がパドルの上の行かどうか
+                (ball.position.y == paddlePosition.y - 1)
+
+                //[6-?-?]ボールの座標がパドルの左端よりも右か
+                && (ball.position.x == paddlePosition.x - 1)
+
+                //[6-?-?]ボールの座標がパドルの右端よりも左か
+                && (ball.position.x < paddlePosition.x + PADDLE_WIDTH + 1)
             ){
-                ballDirection.y = -1; // [6-?-?]ボールの進行方向を上にする
+                ball.direction.y = -1; // [6-?-?]ボールの進行方向を上にする
+
+                //[6-?-?]パドルの中心のX座標を宣言する
+                int paddleCenterX = paddlePosition.x + PADDLE_WIDTH / 2;
+
+                //[6-?-?]ボールがパドルの左端に当たったら
+                if(ball.position.x < paddleCenterX){
+                    ball.direction.x = -1; //[6-?-?]ボールを左に跳ね返す
+                }
+                
+                //[6-?-?]ボールがパドルの右端に当たったら
+                else if(ball.position.x > paddleCenterX){
+                    ball.direction.x = 1; //[6-?-?]ボールを右に跳ね返す
+                }
+            }
+
+            // [6-?-?]ボールとブロックが当ったかどうか判定する
+            if(BallIntersectBlocks()){
+                ball.direction.y = 1; // [6-?-?]ボールを下へ跳ね返す
             }
 
             lastClock = newClock; // [6-?-?]前回の時間を更新する
