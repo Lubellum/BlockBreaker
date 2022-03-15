@@ -227,7 +227,7 @@ int main (){
                         continue; // [6-?-?]次の座標へスキップする
                     } else {
                         // [6-?-?]対象のブロックを削除する
-                        field[position.y][position.x];
+                        field[position.y][position.x] = TILE_NONE;
                     }
                 }
             }
