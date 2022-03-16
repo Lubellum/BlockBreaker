@@ -143,6 +143,12 @@ bool BallIntersectBlocks(){
     return false; // [6-?-?]当たらなかったという結果を返す
 }
 
+// [6-?]メッセージを表示する関数を宣言する
+void Message(const char *_message){
+    DrawScreen();           // [6-?-?]画面を再描画する
+    printf("%s", _message); // [6-?-?]メッセージを表示する
+}
+
 // [6-?]プログラムの実行開始を宣言する
 int main (){
     Reset(); // [6-?]ゲームをリセットする関数を呼び出す
