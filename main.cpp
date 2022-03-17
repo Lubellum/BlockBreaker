@@ -147,6 +147,7 @@ bool BallIntersectBlocks(){
 void Message(const char *_message){
     DrawScreen();           // [6-?-?]画面を再描画する
     printf("%s", _message); // [6-?-?]メッセージを表示する
+    _getch();               // [6-?-?]キーボード入力を待つ
 }
 
 // [6-?]プログラムの実行開始を宣言する
