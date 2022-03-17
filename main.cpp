@@ -179,6 +179,9 @@ int main (){
             // [6-?-?]ボールが下端と当たったかどうか判定する
             if(nextBallPosition.y >= FIELD_HEIGHT - 1){
                 ball.direction.y = -1;
+
+                // [6-?-?]ゲームオーバーのメッセージを表示する
+                Message("GAME OVER"); // (const char *_message)
             }
 
             // [6-?-?]ボールが左の壁と当たったかどうか判定する
