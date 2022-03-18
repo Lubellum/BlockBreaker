@@ -51,7 +51,7 @@ int field  [FIELD_HEIGHT][FIELD_WIDTH]; // [5-?]フィールドを宣言する
 int screen [FIELD_HEIGHT][FIELD_WIDTH]; // [5-?]画面を宣言する
 
 BALL ball;
-// VEC2 ballPosition  = { 0, FIELD_HEIGHT / 4 }; //[5-?]ボールの座標を初期化する
+VEC2 position  = { 0, FIELD_HEIGHT / 4 }; //[5-?]ボールの座標を初期化する
 // VEC2 ballDirection = { 1, 1 };                // [5-?]ボールの進行方向を宣言する
 
 VEC2 paddlePosition = {( FIELD_WIDTH - PADDLE_WIDTH ) / 2, FIELD_HEIGHT - 4}; // [5-?]パドルの座標を宣言する
