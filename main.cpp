@@ -181,7 +181,7 @@ int main (){
                 ball.direction.y = -1;
 
                 // [6-?-?]ゲームオーバーのメッセージを表示する
-                Message("GAME OVER"); // (const char *_message)
+                Message("GAME OVER\a"); // (const char *_message)
 
                 Reset(); // [6-?-?]ゲームをリセットする
                 lastClock = clock(); // [6-?-?]前回の時間を更新する
