@@ -4,5 +4,8 @@
     "oldf",
     "oldt",
     "splatoon"
-  ]
+  ],
+  "files.associations": {
+    "__node_handle": "cpp"
+  }
 }
