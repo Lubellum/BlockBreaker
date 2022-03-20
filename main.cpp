@@ -139,27 +139,6 @@ bool BallIntersectBlocks(){
                 return true; // [6-?-?]当たったという結果を返す
             }
         }
-
-        // [6-?-?]ブロックの残りの数を宣言する
-        int blockCount = 0;
-
-        // [6-?-?]フィールドの全てのマスを反復する
-        for(int y = 0; y < FIELD_HEIGHT; y++){
-            for(int x = 0; x < FIELD_WIDTH; x++){
-                if(field[y][x] == TILE_BLOCK){
-                    blockCount++;
-                }
-            }
-        }
-
-        // [6-?-?]ブロックの残数が0以下かどうか判定する
-        if(blockCount <= 0){
-            // [6-?-?]ゲームオーバーのメッセージを表示する
-            Message("GAME CLEAR!"); // (const char *_message)
-
-            Reset(); // [6-?-?]ゲームをリセットする
-            lastClock = clock(); // [6-?-?]前回の時間を更新する
-        }
     }
     return false; // [6-?-?]当たらなかったという結果を返す
 }
@@ -264,6 +243,28 @@ int main (){
                         field[position.y][position.x] = TILE_NONE;
                     }
                 }
+
+                // [6-?-?]ブロックの残りの数を宣言する
+                int blockCount = 0;
+
+                // [6-?-?]フィールドの全てのマスを反復する
+                for(int y = 0; y < FIELD_HEIGHT; y++){
+                    for(int x = 0; x < FIELD_WIDTH; x++){
+                        if(field[y][x] == TILE_BLOCK){
+                            blockCount++;
+                        }
+                    }
+                }
+
+                // [6-?-?]ブロックの残数が0以下かどうか判定する
+                if(blockCount <= 0){
+                    // [6-?-?]ゲームオーバーのメッセージを表示する
+                    Message("GAME CLEAR!"); // (const char *_message)
+
+                    Reset(); // [6-?-?]ゲームをリセットする
+                    lastClock = clock(); // [6-?-?]前回の時間を更新する
+                }
+
             }
 
             lastClock = newClock; // [6-?-?]前回の時間を更新する
