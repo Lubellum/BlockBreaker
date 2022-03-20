@@ -140,14 +140,14 @@ bool BallIntersectBlocks(){
             }
         }
 
-        // [6-?-?]ボールの残りの数を宣言する
+        // [6-?-?]ブロックの残りの数を宣言する
         int blockCount = 0;
 
         // [6-?-?]フィールドの全てのマスを反復する
         for(int y = 0; y < FIELD_HEIGHT; y++){
             for(int x = 0; x < FIELD_WIDTH; x++){
                 if(field[y][x] == TILE_BLOCK){
-                    
+                    blockCount++;
                 }
             }
         }
