@@ -151,6 +151,15 @@ bool BallIntersectBlocks(){
                 }
             }
         }
+
+        // [6-?-?]ブロックの残数が0以下かどうか判定する
+        if(blockCount <= 0){
+            // [6-?-?]ゲームオーバーのメッセージを表示する
+            Message("GAME CLEAR!"); // (const char *_message)
+
+            Reset(); // [6-?-?]ゲームをリセットする
+            lastClock = clock(); // [6-?-?]前回の時間を更新する
+        }
     }
     return false; // [6-?-?]当たらなかったという結果を返す
 }
