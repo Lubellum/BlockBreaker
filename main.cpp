@@ -93,15 +93,15 @@ void DrawScreen(){
 }
 // [6-?]ゲームをリセットする関数を宣言する
 void Reset(){
-    field[0][0] = TILE_BLOCK;
-    // // [6-?-?]フィールドの上1/4を反復する
-    // for(int y = 0; y < FIELD_HEIGHT / 4; y++){
-    //     // [6-?-?]全ての列を反復する
-    //     for(int x = 0; x < FIELD_WIDTH; x++){
-    //         // [6-?-?]対象の座標にブロックを配置する
-    //         field[y][x] = TILE_BLOCK;
-    //     }
-    // }
+    // [6-?-?]フィールドの上1/4を反復する
+    for(int y = 0; y < FIELD_HEIGHT / 4; y++){
+        // [6-?-?]全ての列を反復する
+        for(int x = 0; x < FIELD_WIDTH; x++){
+            // [6-?-?]対象の座標にブロックを配置する
+            field[y][x] = TILE_BLOCK;
+        }
+    }
+
     // [6-?-?]画面を描画する関数を呼び出す
     DrawScreen();
 }
