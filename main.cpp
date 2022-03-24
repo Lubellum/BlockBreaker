@@ -70,7 +70,7 @@ void DrawScreen(){
         screen[paddlePosition.y][paddlePosition.x + x] = TILE_PADDLE;
     }
 
-    system("reset");
+    // system("reset");
     
     for(int x = 0; x < FIELD_WIDTH + 2; x++){
         printf("⬜️");
