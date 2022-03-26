@@ -153,6 +153,9 @@ void Message(const char *_message){
 
 // [6-?]プログラムの実行開始を宣言する
 int main (){
+    // [6-?-?]乱数をシャッフルする
+    srand((unsigned int)time(NULL));
+
     Reset(); // [6-?]ゲームをリセットする関数を呼び出す
 
     // // [6-?-?]前回の時間を宣言する
