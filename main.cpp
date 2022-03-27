@@ -93,6 +93,9 @@ void DrawScreen(){
 }
 // [6-?]ゲームをリセットする関数を宣言する
 void Reset(){
+    // [6-?-?]ボールの座標を初期化する
+    ball.position = { 0, FIELD_HEIGHT / 4 };
+
     // [6-?-?]フィールドの上1/4を反復する
     for(int y = 0; y < FIELD_HEIGHT / 4; y++){
         // [6-?-?]全ての列を反復する
