@@ -94,7 +94,7 @@ void DrawScreen(){
 // [6-?]ゲームをリセットする関数を宣言する
 void Reset(){
     // [6-?-?]ボールの座標を初期化する
-    ball.position = { 0, FIELD_HEIGHT / 4 };
+    // ball.position = { 0, FIELD_HEIGHT / 4 };
 
     // [6-?-?]フィールドの上1/4を反復する
     for(int y = 0; y < FIELD_HEIGHT / 4; y++){
@@ -162,146 +162,146 @@ int main (){
     Reset(); // [6-?]ゲームをリセットする関数を呼び出す
 
     // // [6-?-?]前回の時間を宣言する
-    // clock_t lastClock = clock();
+    clock_t lastClock = clock();
 
-    // // [6-?-?]メインループを追加する
-    // while (1){
-    //     // [6-?-?]現在の時間を宣言する
-    //     clock_t newClock = clock();
+    // [6-?-?]メインループを追加する
+    while (1){
+        // [6-?-?]現在の時間を宣言する
+        clock_t newClock = clock();
 
-    //     // [6-?-?]描画時間になったかどうか判定する
-    //     if (newClock >= lastClock + INTERVAL){
+        // [6-?-?]描画時間になったかどうか判定する
+        if (newClock >= lastClock + INTERVAL){
 
-    //         // [6-?-?]次のボールの座標を宣言する
-    //         VEC2 nextBallPosition = {
-    //             ball.position.x += ball.direction.x, // [6-?-?]ボールを横に移動させる
-    //             ball.position.y += ball.direction.y // [6-?-?]ボールを縦に移動させる
-    //         };
+            // [6-?-?]次のボールの座標を宣言する
+            VEC2 nextBallPosition = {
+                ball.position.x += ball.direction.x, // [6-?-?]ボールを横に移動させる
+                ball.position.y += ball.direction.y // [6-?-?]ボールを縦に移動させる
+            };
 
-    //         // [6-?-?]ボールが上端と当たったかどうか判定する
-    //         if(nextBallPosition.y <= 0){
-    //             ball.direction.y = 1;
-    //         }
+            // [6-?-?]ボールが上端と当たったかどうか判定する
+            if(nextBallPosition.y <= 0){
+                ball.direction.y = 1;
+            }
 
-    //         // [6-?-?]ボールが下端と当たったかどうか判定する
-    //         if(nextBallPosition.y >= FIELD_HEIGHT - 1){
-    //             ball.direction.y = -1;
+            // [6-?-?]ボールが下端と当たったかどうか判定する
+            if(nextBallPosition.y >= FIELD_HEIGHT - 1){
+                ball.direction.y = -1;
 
-    //             // [6-?-?]ゲームオーバーのメッセージを表示する
-    //             Message("GAME OVER\a"); // (const char *_message)
+                // [6-?-?]ゲームオーバーのメッセージを表示する
+                Message("GAME OVER\a"); // (const char *_message)
 
-    //             Reset(); // [6-?-?]ゲームをリセットする
-    //             lastClock = clock(); // [6-?-?]前回の時間を更新する
-    //         }
+                Reset(); // [6-?-?]ゲームをリセットする
+                lastClock = clock(); // [6-?-?]前回の時間を更新する
+            }
 
-    //         // [6-?-?]ボールが左の壁と当たったかどうか判定する
-    //         if(nextBallPosition.x <= 0){
-    //             ball.direction.x = 1;
-    //         }
+            // [6-?-?]ボールが左の壁と当たったかどうか判定する
+            if(nextBallPosition.x <= 0){
+                ball.direction.x = 1;
+            }
 
-    //         // [6-?-?]ボールが右の壁と当たったかどうか判定する
-    //         if(nextBallPosition.x >= FIELD_WIDTH - 1){
-    //             ball.direction.x = -1;
-    //         }
+            // [6-?-?]ボールが右の壁と当たったかどうか判定する
+            if(nextBallPosition.x >= FIELD_WIDTH - 1){
+                ball.direction.x = -1;
+            }
 
-    //         ball.position = nextBallPosition; // [6-?-?]次のボールの座標を適用する
+            ball.position = nextBallPosition; // [6-?-?]次のボールの座標を適用する
 
-    //         // [6-?-?]ボールがパドルの上の座標に当たったかどうか判定する
-    //         if(
-    //             //[6-?-?]ボールの座標がパドルの上の行かどうか
-    //             (ball.position.y == paddlePosition.y - 1)
+            // [6-?-?]ボールがパドルの上の座標に当たったかどうか判定する
+            if(
+                //[6-?-?]ボールの座標がパドルの上の行かどうか
+                (ball.position.y == paddlePosition.y - 1)
 
-    //             //[6-?-?]ボールの座標がパドルの左端よりも右か
-    //             && (ball.position.x == paddlePosition.x - 1)
+                //[6-?-?]ボールの座標がパドルの左端よりも右か
+                && (ball.position.x == paddlePosition.x - 1)
 
-    //             //[6-?-?]ボールの座標がパドルの右端よりも左か
-    //             && (ball.position.x < paddlePosition.x + PADDLE_WIDTH + 1)
-    //         ){
-    //             ball.direction.y = -1; // [6-?-?]ボールの進行方向を上にする
+                //[6-?-?]ボールの座標がパドルの右端よりも左か
+                && (ball.position.x < paddlePosition.x + PADDLE_WIDTH + 1)
+            ){
+                ball.direction.y = -1; // [6-?-?]ボールの進行方向を上にする
 
-    //             //[6-?-?]パドルの中心のX座標を宣言する
-    //             int paddleCenterX = paddlePosition.x + PADDLE_WIDTH / 2;
+                //[6-?-?]パドルの中心のX座標を宣言する
+                int paddleCenterX = paddlePosition.x + PADDLE_WIDTH / 2;
 
-    //             //[6-?-?]ボールがパドルの左端に当たったら
-    //             if(ball.position.x < paddleCenterX){
-    //                 ball.direction.x = -1; //[6-?-?]ボールを左に跳ね返す
-    //             }
+                //[6-?-?]ボールがパドルの左端に当たったら
+                if(ball.position.x < paddleCenterX){
+                    ball.direction.x = -1; //[6-?-?]ボールを左に跳ね返す
+                }
                 
-    //             //[6-?-?]ボールがパドルの右端に当たったら
-    //             else if(ball.position.x > paddleCenterX){
-    //                 ball.direction.x = 1; //[6-?-?]ボールを右に跳ね返す
-    //             }
-    //         }
+                //[6-?-?]ボールがパドルの右端に当たったら
+                else if(ball.position.x > paddleCenterX){
+                    ball.direction.x = 1; //[6-?-?]ボールを右に跳ね返す
+                }
+            }
 
-    //         // [6-?-?]ボールとブロックが当ったかどうか判定する
-    //         if(BallIntersectBlocks()){
-    //             ball.direction.y = 1; // [6-?-?]ボールを下へ跳ね返す
+            // [6-?-?]ボールとブロックが当ったかどうか判定する
+            if(BallIntersectBlocks()){
+                ball.direction.y = 1; // [6-?-?]ボールを下へ跳ね返す
 
-    //             // [6-?-?]ボールの左右1マスを反復する
-    //             for(int x = ball.position.x - 1; x < ball.position.x + 1; x++){
-    //                 // [6-?-?]対象の座標を宣言する
-    //                 VEC2 position = { x, ball.position.y - 1 };
+                // [6-?-?]ボールの左右1マスを反復する
+                for(int x = ball.position.x - 1; x < ball.position.x + 1; x++){
+                    // [6-?-?]対象の座標を宣言する
+                    VEC2 position = { x, ball.position.y - 1 };
 
-    //                 // [6-?-?]対象の座標がフィールドの範囲内でないかどうか判定する
-    //                 if(!InsideField(position)){
-    //                     continue; // [6-?-?]次の座標へスキップする
-    //                 } else {
-    //                     // [6-?-?]対象のブロックを削除する
-    //                     field[position.y][position.x] = TILE_NONE;
-    //                 }
-    //             }
+                    // [6-?-?]対象の座標がフィールドの範囲内でないかどうか判定する
+                    if(!InsideField(position)){
+                        continue; // [6-?-?]次の座標へスキップする
+                    } else {
+                        // [6-?-?]対象のブロックを削除する
+                        field[position.y][position.x] = TILE_NONE;
+                    }
+                }
 
-    //             // [6-?-?]ブロックの残りの数を宣言する
-    //             int blockCount = 0;
+                // [6-?-?]ブロックの残りの数を宣言する
+                int blockCount = 0;
 
-    //             // [6-?-?]フィールドの全てのマスを反復する
-    //             for(int y = 0; y < FIELD_HEIGHT; y++){
-    //                 for(int x = 0; x < FIELD_WIDTH; x++){
-    //                     if(field[y][x] == TILE_BLOCK){
-    //                         blockCount++;
-    //                     }
-    //                 }
-    //             }
+                // [6-?-?]フィールドの全てのマスを反復する
+                for(int y = 0; y < FIELD_HEIGHT; y++){
+                    for(int x = 0; x < FIELD_WIDTH; x++){
+                        if(field[y][x] == TILE_BLOCK){
+                            blockCount++;
+                        }
+                    }
+                }
 
-    //             // [6-?-?]ブロックの残数が0以下かどうか判定する
-    //             if(blockCount <= 0){
-    //                 // [6-?-?]ゲームオーバーのメッセージを表示する
-    //                 Message("GAME CLEAR!"); // (const char *_message)
+                // [6-?-?]ブロックの残数が0以下かどうか判定する
+                if(blockCount <= 0){
+                    // [6-?-?]ゲームオーバーのメッセージを表示する
+                    Message("GAME CLEAR!"); // (const char *_message)
 
-    //                 Reset(); // [6-?-?]ゲームをリセットする
-    //                 lastClock = clock(); // [6-?-?]前回の時間を更新する
-    //             }
+                    Reset(); // [6-?-?]ゲームをリセットする
+                    lastClock = clock(); // [6-?-?]前回の時間を更新する
+                }
 
-    //         }
+            }
 
-    //         lastClock = newClock; // [6-?-?]前回の時間を更新する
+            lastClock = newClock; // [6-?-?]前回の時間を更新する
 
-    //         DrawScreen(); // [6-?-?]画面を再描画する
-    //     }
+            DrawScreen(); // [6-?-?]画面を再描画する
+        }
 
-    //     // [6-?-?]キーボード入力があったかどうか判定する
-    //     if(_kbhit()){
-    //         // [6-?-?]入力されたキーによって分岐する
-    //             switch (_getch()){
-    //             case 'a': // [6-?-?]aキーが押されたら左に移動する
-    //                 paddlePosition.x--;
-    //                 break;
-    //             case 'd': // [6-?-?]dキーが押されたら右に移動する
-    //                 paddlePosition.x++;
-    //                 break;
-    //         }
+        // [6-?-?]キーボード入力があったかどうか判定する
+        if(_kbhit()){
+            // [6-?-?]入力されたキーによって分岐する
+                switch (_getch()){
+                case 'a': // [6-?-?]aキーが押されたら左に移動する
+                    paddlePosition.x--;
+                    break;
+                case 'd': // [6-?-?]dキーが押されたら右に移動する
+                    paddlePosition.x++;
+                    break;
+            }
 
-    //         // [6-?-?]パドルが左の壁にめり込んだかどうか判定する
-    //         if(paddlePosition.x < 0){
-    //             paddlePosition.x = 0; // パドルをフィールド内に押し戻す
-    //         }
+            // [6-?-?]パドルが左の壁にめり込んだかどうか判定する
+            if(paddlePosition.x < 0){
+                paddlePosition.x = 0; // パドルをフィールド内に押し戻す
+            }
 
-    //         // [6-?-?]パドルが右の壁にめり込んだかどうか判定する
-    //         if(paddlePosition.x + PADDLE_WIDTH >= FIELD_WIDTH){
-    //             paddlePosition.x = FIELD_WIDTH - PADDLE_WIDTH; // パドルをフィールド内に押し戻す
-    //         }
+            // [6-?-?]パドルが右の壁にめり込んだかどうか判定する
+            if(paddlePosition.x + PADDLE_WIDTH >= FIELD_WIDTH){
+                paddlePosition.x = FIELD_WIDTH - PADDLE_WIDTH; // パドルをフィールド内に押し戻す
+            }
 
-    //         DrawScreen();
-    //     }
-    // }
+            DrawScreen();
+        }
+    }
 }
